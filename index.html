@@ -1,0 +1,212 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewsport" content="width-device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <title>Blogger Photos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body> 
+    
+  <ul class="menu">
+      
+    <li>
+        <img src="logo2.png" alt="logo" class="logo">
+    </li>
+    <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+            <a href="#">Blog</a>
+            <ul>
+              <li>
+                <a href="#">Blog 1</a>
+              </li>
+              <li>
+                  <a href="#">Blog 2</a>
+                </li>
+                <li>
+                    <a href="#">Blog 3</a>
+                  </li>
+            </ul>
+          </li>
+  </ul>
+
+<br>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  <script>
+      $(document).ready(function(){
+          var slider = 0;
+          $('.sliderbutton li:first').css('background','yellow');
+          $.slider = function(toplam){
+              $('#slider li').hide();
+              if(slider < toplam-1)
+              {
+                  slider++;
+                  $('.sliderbutton li').css('background','red');
+                  $('.sliderbutton li:eq('+slider+')').css('background','yellow');
+                  $('#slider li:eq('+slider+')').fadeIn("fast");
+              }else if(slider < 0){
+                  slider = toplam-1;
+                  $('.sliderbutton li').css('background','red');
+                  $('.sliderbutton li:eq('+slider+')').css('background','yellow');
+                  $('#slider li:eq('+slider+')').fadeIn("fast");
+              }else{
+                  $('#slider li:first').fadeIn("fast");
+                  slider=0;
+                  $('.sliderbutton li').css('background','red');
+                  $('.sliderbutton li:eq('+slider+')').css('background','yellow');
+              }
+          }
+          var lenghtli = $('#slider li').length;
+          var interval = setInterval('$.slider('+lenghtli+')',3000);
+          $('#slider').hover(function(){
+              interval = clearInterval(interval);
+          },function(){
+              interval = setInterval('$.slider('+lenghtli+')',3000);
+          })
+          $('.sliderbutton li').click(function(){
+              $('.sliderbutton li').css('background','red');
+              $(this).css('background','yellow');
+              interval = clearInterval(interval);
+             var indis = $(this).index();
+              $('#slider li').hide();
+              $('#slider li:eq('+indis+')').fadeIn("fast");
+              slider = indis;
+              interval = setInterval('$.slider('+lenghtli+')',3000);
+          });
+          $('.sliderleft').click(function () {
+              slider--;
+              $('.sliderbutton li').css('background','red');
+              if(slider < 0)
+              {
+                  $('.sliderbutton li:last').css('background','yellow');
+                  slider = lenghtli-1;
+              }else{
+                  $('.sliderbutton li:eq('+slider+')').css('background','yellow');
+              }
+              $('#slider li').hide();
+              $('#slider li:eq('+slider+')').fadeIn("fast");
+          });
+          $('.sliderright').click(function () {
+              slider++;
+              $('.sliderbutton li').css('background','red');
+              if(slider > lenghtli-1)
+              {
+                  $('.sliderbutton li:first').css('background','yellow');
+                  slider = 0;
+              }else{
+                  $('.sliderbutton li:eq('+slider+')').css('background','yellow');
+              }
+              $('#slider li').hide();
+              $('#slider li:eq('+slider+')').fadeIn("fast");
+          });
+      });
+  </script>
+</head>
+<body>
+
+
+<div id="slider">
+
+  <div class="sliderleft"></div>
+  <div class="sliderright"></div>
+ <li> <img src="10.jpg" alt=""></li>
+ <li> <img src="11.jpg" alt=""></li>
+ <li> <img src="13.jpg" alt=""></li>
+ <li> <img src="16.jpg" alt=""></li>
+ <li> <img src="15.jpg" alt=""></li>
+
+
+</div>
+<div class="sliderbutton">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</div>
+ 
+  <body>
+      <h1>My Albums</h1>
+  </body>
+   
+
+  <div class="wall">
+    <div class="wall-item">
+      <img src="01.jpg" alt="">
+      <h2>Freedom</h2>
+      <p>The secret of happiness is freedom, the secret of freedom is courage. </p>
+    </div>
+
+    <div class="wall-item">
+      <img src="02.jpg" alt="">
+      <h2>Time</h2>
+      <p>Time is what we want most, but what we use worst.</p>
+    </div>
+
+    <div class="wall-item">
+      <img src="03.jpg" alt="">
+      <h2>Not Afraid</h2>
+      <p>Be not afraid of going slowly, be afraid only of standing still.</p>
+    </div>
+
+    <div class="wall-item">
+      <img src="04.jpg" alt="">
+      <h2>Don't Stop Dreaming</h2>
+      <p>A person starts dying when they stop dreaming.</p>
+    </div>
+
+    <div class="wall-item">
+      <img src="05.jpg" alt="">
+      <h2>Real</h2>
+      <p>Everything you can imagine is real.</p>
+    </div>
+
+    <div class="wall-item">
+      <img src="06.jpg" alt="">
+      <h2>Strong</h2>
+      <p>You never know how strong you are, until being strong is your only choice.</p>
+    </div>
+
+    <div class="wall-item">
+        <img src="07.jpg" alt="">
+        <h2>Change</h2>
+        <p>You must be the change you wish to see in the world.</p>
+      </div>
+
+      <div class="wall-item">
+          <img src="08.jpg" alt="">
+          <h2>Life</h2>
+          <p>Learn from yesterday, live for today, hope for tomorrow.</p>
+        </div>
+
+        <div class="wall-item">
+          <img src="09.jpg" alt="">
+          <h2>Never Mind</h2>
+          <p>You can’t have a better tomorrow if you are thinking about yesterday all the time.</p>
+        </div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="jaliswall.js"></script>
+  <script type="text/javascript">
+    $('.wall').jaliswall({
+      item: '.wall-item',
+      columnClass: '.wall-column'
+    });
+  </script>
+ 
+
+
+
+</body>
+
+
+</html>
